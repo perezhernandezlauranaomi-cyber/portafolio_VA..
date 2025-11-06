@@ -1,0 +1,405 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Tema - Lenguaje Natural</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff1493 0%, #c71585 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff1493;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ff1493;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-container {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #444;
+        }
+
+        .code-language {
+            color: #ff1493;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .copy-button {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: #c71585;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d4d4d4;
+        }
+
+        code {
+            color: #d4d4d4;
+        }
+
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .function { color: #dcdcaa; }
+        .comment { color: #6a9955; }
+        .number { color: #b5cea8; }
+
+        .glossary-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .glossary-item {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .glossary-item:hover {
+            border-color: #ff1493;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.15);
+        }
+
+        .function-name {
+            font-size: 1.2rem;
+            color: #ff1493;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .function-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .function-params {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #555;
+            border-left: 3px solid #ff1493;
+        }
+
+        .params-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .code-container {
+                padding: 1rem;
+            }
+
+            pre {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-button">← Volver</a>
+        <h1>frecuencia </h1>
+        <p>Procesamiento de Lenguaje Natural con Python</p>
+        <p>Perez Hernandez Laura Naomi </p>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">💻 Código del Ejemplo</h2>
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-language">Python</span>
+                    <button class="copy-button" onclick="copiarCodigo()">Copiar código</button>
+                </div>
+                <pre><code id="codigo">
+                    
+                    
+#frase de ejmplo
+
+frase= "python es divertido y python es poderoso"
+
+#1. limpiar el texto (minusculas y sin puntuacion basica)
+frase_limpia=frase.replace("","").replace(" ","-").lower()
+
+#2.dividir en palabras (tokenizacion)
+tokens=frase_limpia.split()
+
+#3.contar palabras usando un diccionario
+frecuencia={}
+for palabra in tokens:
+    if palabra in frecuencia:
+        frecuencia[palabra]+=1
+    else:
+        frecuencia[palabra]=1
+
+#4.mostar resultados
+print(frecuencia)
+
+                    
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 Glosario de Funciones</h2>
+            <div class="glossary-list">
+                <div class="glossary-item">
+                    <div class="function-name">inicializar_analizador()</div>
+                    <div class="function-description">
+                        Crea e inicializa una instancia del analizador de sentimientos VADER, preparándolo para procesar textos.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Retorna:</div>
+                        SentimentIntensityAnalyzer - Objeto analizador configurado
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="function-name">analizar_sentimiento(texto, analizador)</div>
+                    <div class="function-description">
+                        Analiza el sentimiento del texto proporcionado y devuelve puntajes de polaridad para diferentes dimensiones emocionales.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Parámetros:</div>
+                        • texto: str - Texto a analizar<br>
+                        • analizador: SentimentIntensityAnalyzer<br>
+                        <div class="params-title" style="margin-top: 0.5rem;">Retorna:</div>
+                        dict - Puntajes {'neg', 'neu', 'pos', 'compound'}
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="function-name">clasificar_sentimiento(puntajes)</div>
+                    <div class="function-description">
+                        Clasifica el sentimiento general basándose en el puntaje compuesto, determinando si es positivo, negativo o neutral.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Parámetros:</div>
+                        • puntajes: dict - Diccionario con puntajes<br>
+                        <div class="params-title" style="margin-top: 0.5rem;">Retorna:</div>
+                        str - 'Positivo', 'Negativo' o 'Neutral'
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="function-name">polarity_scores()</div>
+                    <div class="function-description">
+                        Método de VADER que calcula los puntajes de polaridad del texto, incluyendo valores negativos, neutrales, positivos y compuestos.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Método de:</div>
+                        SentimentIntensityAnalyzer<br>
+                        <div class="params-title" style="margin-top: 0.5rem;">Retorna:</div>
+                        dict - Puntajes normalizados entre -1 y 1
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="function-name">word_tokenize()</div>
+                    <div class="function-description">
+                        Divide un texto en tokens individuales (palabras), facilitando el análisis granular del contenido.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Parámetros:</div>
+                        • texto: str - Texto a tokenizar<br>
+                        <div class="params-title" style="margin-top: 0.5rem;">Retorna:</div>
+                        list - Lista de tokens (palabras)
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="function-name">nltk.download()</div>
+                    <div class="function-description">
+                        Descarga recursos y corpus necesarios de NLTK para el procesamiento de lenguaje natural.
+                    </div>
+                    <div class="function-params">
+                        <div class="params-title">Parámetros:</div>
+                        • resource: str - Nombre del recurso a descargar<br>
+                        <div class="params-title" style="margin-top: 0.5rem;">Ejemplo:</div>
+                        'vader_lexicon', 'punkt', 'stopwords'
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copiarCodigo() {
+            const codigo = document.getElementById('codigo').innerText;
+            navigator.clipboard.writeText(codigo).then(() => {
+                const boton = document.querySelector('.copy-button');
+                const textoOriginal = boton.textContent;
+                boton.textContent = '✓ Copiado';
+                boton.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    boton.textContent = textoOriginal;
+                    boton.style.background = '#ff1493';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
